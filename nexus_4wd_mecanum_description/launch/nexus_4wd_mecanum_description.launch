@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <launch>
-	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find nexus_4wd_mecanum_description)/urdf/nexus_4wd_mecanum.xacro" />
+    <arg name="namespace"/>
+    <param name="robot_description" command="$(find xacro)/xacro '$(find nexus_4wd_mecanum_description)/urdf/nexus_4wd_mecanum.xacro' namespace:='$(arg namespace)'"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 </launch>
