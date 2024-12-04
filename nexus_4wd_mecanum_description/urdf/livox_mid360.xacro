@@ -24,14 +24,14 @@
                     <mesh filename="package://nexus_4wd_mecanum_description/meshes/livox_mid360/livox_mid360.stl" scale="1 1 1"/>
                 </geometry>
             </visual>
-            <collision>
+            <!-- <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
                     <box>
                         <size>0.05 0.05 0.05</size>
                     </box>
                 </geometry>
-            </collision>
+            </collision> -->
         </link>
         <!-- Gazebo 配置 -->
         <gazebo reference="laser_link">

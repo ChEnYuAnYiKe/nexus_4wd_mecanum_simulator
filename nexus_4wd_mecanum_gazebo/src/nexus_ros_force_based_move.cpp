@@ -165,7 +165,24 @@ namespace gazebo
     max_yaw_velocity = 0.5;
     if (sdf->HasElement("max_yaw_velocity"))
       (sdf->GetElement("max_yaw_velocity")->GetValue()->Get(max_yaw_velocity));
- 
+
+    init_x = 0;
+    if (sdf->HasElement("init_x"))
+      (sdf->GetElement("init_x")->GetValue()->Get(init_x));
+
+    init_y = 0;
+    if (sdf->HasElement("init_y"))
+      (sdf->GetElement("init_y")->GetValue()->Get(init_y));
+
+    init_yaw = 0;
+    if (sdf->HasElement("init_yaw"))
+      (sdf->GetElement("init_yaw")->GetValue()->Get(init_yaw));
+
+    tf::Quaternion q;
+    q.setRPY(0, 0, init_yaw);
+    odom_transform_.setOrigin(tf::Vector3(init_x, init_y, 0.0));
+    odom_transform_.setRotation(q);
+
 #if (GAZEBO_MAJOR_VERSION >= 8)
     last_odom_publish_time_ = parent_->GetWorld()->SimTime();
     last_odom_pose_ = parent_->WorldPose();
@@ -178,7 +195,7 @@ namespace gazebo
     rot_ = 0;
     alive_ = true;
 
-    odom_transform_.setIdentity();
+    // odom_transform_.setIdentity();
 
     // Ensure that ROS has been initialized and subscribe to cmd_vel
     if (!ros::isInitialized()) 
@@ -356,12 +373,18 @@ namespace gazebo
 #endif
 
     odom_.header.stamp = current_time;
-    odom_.header.frame_id = odom_frame;
+    // odom_.header.frame_id = odom_frame;
+    odom_.header.frame_id = "world";
     odom_.child_frame_id = base_footprint_frame;
 
+    // if (transform_broadcaster_.get()){
+    //   transform_broadcaster_->sendTransform(
+    //       tf::StampedTransform(odom_transform_, current_time, odom_frame,
+    //           base_footprint_frame));
+    // }
     if (transform_broadcaster_.get()){
       transform_broadcaster_->sendTransform(
-          tf::StampedTransform(odom_transform_, current_time, odom_frame,
+          tf::StampedTransform(odom_transform_, current_time, "world",
               base_footprint_frame));
     }
     

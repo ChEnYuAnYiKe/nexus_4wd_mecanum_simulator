@@ -19,45 +19,50 @@
 
   <arg name="ugv_1_pose_x" default="0" />
   <arg name="ugv_1_pose_y" default="0" />
+  <arg name="ugv_1_pose_yaw" default="0" />
 
   <arg name="ugv_2_pose_x" default="0" />
   <arg name="ugv_2_pose_y" default="-1" />
+  <arg name="ugv_2_pose_yaw" default="0" />
 
   <arg name="ugv_3_pose_x" default="1" />
   <arg name="ugv_3_pose_y" default="-1" />
+  <arg name="ugv_3_pose_yaw" default="0" />
 
   <arg name="ugv_4_pose_x" default="1" />
   <arg name="ugv_4_pose_y" default="0" />
+  <arg name="ugv_4_pose_yaw" default="0" />
 
   <include file="$(find nexus_4wd_mecanum_gazebo)/launch/spawn_one_nexus_4wd_mecanum.launch">
     <arg name="robot_name" value="ugv_1" />
     <arg name="pose_x" value="$(arg ugv_1_pose_x)" />
     <arg name="pose_y" value="$(arg ugv_1_pose_y)" />
+    <arg name="pose_yaw" value="$(arg ugv_1_pose_yaw)" />
   </include>
-  <node pkg="tf2_ros" type="static_transform_publisher" name="ugv_1_tf" args="$(arg ugv_1_pose_x) $(arg ugv_1_pose_y) 0 0 0 0 1 world ugv_1/base_footprint" />
-
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="ugv_1_tf" args="$(arg ugv_1_pose_x) $(arg ugv_1_pose_y) 0 0 0 $(arg ugv_1_pose_yaw) 1 world ugv_1/base_footprint" /> -->
 
   <include file="$(find nexus_4wd_mecanum_gazebo)/launch/spawn_one_nexus_4wd_mecanum.launch">
     <arg name="robot_name" value="ugv_2" />
     <arg name="pose_x" value="$(arg ugv_2_pose_x)" />
     <arg name="pose_y" value="$(arg ugv_2_pose_y)" />
+    <arg name="pose_yaw" value="$(arg ugv_2_pose_yaw)" />
   </include>
-  <node pkg="tf2_ros" type="static_transform_publisher" name="ugv_2_tf" args="$(arg ugv_2_pose_x) $(arg ugv_2_pose_y) 0 0 0 0 1 world ugv_2/base_footprint" />
-
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="ugv_2_tf" args="$(arg ugv_2_pose_x) $(arg ugv_2_pose_y) 0 0 0 $(arg ugv_2_pose_yaw) 1 world ugv_2/base_footprint" /> -->
 
   <include file="$(find nexus_4wd_mecanum_gazebo)/launch/spawn_one_nexus_4wd_mecanum.launch">
     <arg name="robot_name" value="ugv_3" />
     <arg name="pose_x" value="$(arg ugv_3_pose_x)" />
     <arg name="pose_y" value="$(arg ugv_3_pose_y)" />
+    <arg name="pose_yaw" value="$(arg ugv_3_pose_yaw)" />
   </include>
-  <node pkg="tf2_ros" type="static_transform_publisher" name="ugv_3_tf" args="$(arg ugv_3_pose_x) $(arg ugv_3_pose_y) 0 0 0 0 1 world ugv_3/base_footprint" />
-
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="ugv_3_tf" args="$(arg ugv_3_pose_x) $(arg ugv_3_pose_y) 0 0 0 $(arg ugv_3_pose_yaw) 1 world ugv_3/base_footprint" /> -->
 
   <include file="$(find nexus_4wd_mecanum_gazebo)/launch/spawn_one_nexus_4wd_mecanum.launch">
     <arg name="robot_name" value="ugv_4" />
     <arg name="pose_x" value="$(arg ugv_4_pose_x)" />
     <arg name="pose_y" value="$(arg ugv_4_pose_y)" />
+    <arg name="pose_yaw" value="$(arg ugv_4_pose_yaw)" />
   </include>
-  <node pkg="tf2_ros" type="static_transform_publisher" name="ugv_4_tf" args="$(arg ugv_4_pose_x) $(arg ugv_4_pose_y) 0 0 0 0 1 world ugv_4/base_footprint" />
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="ugv_4_tf" args="$(arg ugv_4_pose_x) $(arg ugv_4_pose_y) 0 0 0 $(arg ugv_4_pose_yaw) 1 world ugv_4/base_footprint" /> -->
 
 </launch>

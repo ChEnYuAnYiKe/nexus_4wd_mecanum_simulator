@@ -119,8 +119,10 @@ namespace gazebo {
       double max_y_velocity;
       double max_yaw_velocity;
 
+      double init_x;
+      double init_y;
+      double init_yaw;
   };
-
 }
 
 #endif /* end of include guard: GAZEBO_ROS_PLANAR_MOVE_HH */
