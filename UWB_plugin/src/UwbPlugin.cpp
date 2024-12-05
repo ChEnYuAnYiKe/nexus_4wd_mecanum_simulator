@@ -884,8 +884,8 @@ namespace gazebo
 
                             int indexRanging = (int) round(distanceAfterRebounds / stepDBDistance);
 
-                            // std::normal_distribution<double> distributionRanging(distanceAfterRebounds * 1000, rangingStd[indexRanging][indexScenario]);
-                            std::normal_distribution<double> distributionRanging(distance * 1000, 0.05*distance); // TODO
+                            std::normal_distribution<double> distributionRanging(distanceAfterRebounds * 1000, rangingStd[indexRanging][indexScenario]);
+                            // std::normal_distribution<double> distributionRanging(distance * 1000, 0.05*distance);
                             std::normal_distribution<double> distributionRss(rssMean[indexRanging][indexScenario], rssStd[indexRanging][indexScenario]);
 
                             double rangingValue = distributionRanging(this->random_generator);
