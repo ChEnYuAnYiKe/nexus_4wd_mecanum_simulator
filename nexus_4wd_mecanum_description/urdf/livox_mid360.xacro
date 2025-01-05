@@ -8,7 +8,7 @@
     <xacro:property name="noise_stddev" value="0.00"/>
     <xacro:property name="laser_min_range" value="0.1"/>
     <xacro:property name="laser_max_range" value="40"/>
-    <xacro:property name="samples" value="10000"/>
+    <xacro:property name="samples" value="8000"/>
     <xacro:property name="downsample" value="1"/>
 
     <xacro:macro name="laser_livox" params="NS">
