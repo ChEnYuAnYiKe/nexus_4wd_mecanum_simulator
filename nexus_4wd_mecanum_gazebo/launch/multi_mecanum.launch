@@ -25,6 +25,14 @@
     <arg name="ugv_2_pose_y" default="-1" />
     <arg name="ugv_2_pose_yaw" default="0" />
 
+    <arg name="ugv_3_pose_x" default="1" />
+    <arg name="ugv_3_pose_y" default="-1" />
+    <arg name="ugv_3_pose_yaw" default="0" />
+
+    <arg name="ugv_4_pose_x" default="1" />
+    <arg name="ugv_4_pose_y" default="1" />
+    <arg name="ugv_4_pose_yaw" default="0" />
+
     <include file="$(find nexus_4wd_mecanum_gazebo)/launch/spawn_one_nexus_4wd_mecanum.launch">
         <arg name="robot_name" value="ugv_0" />
         <arg name="pose_x" value="$(arg ugv_1_pose_x)" />
@@ -37,6 +45,20 @@
         <arg name="pose_x" value="$(arg ugv_2_pose_x)" />
         <arg name="pose_y" value="$(arg ugv_2_pose_y)" />
         <arg name="pose_yaw" value="$(arg ugv_2_pose_yaw)" />
+    </include>
+
+    <include file="$(find nexus_4wd_mecanum_gazebo)/launch/spawn_one_nexus_4wd_mecanum.launch">
+        <arg name="robot_name" value="ugv_2" />
+        <arg name="pose_x" value="$(arg ugv_3_pose_x)" />
+        <arg name="pose_y" value="$(arg ugv_3_pose_y)" />
+        <arg name="pose_yaw" value="$(arg ugv_3_pose_yaw)" />
+    </include>
+
+    <include file="$(find nexus_4wd_mecanum_gazebo)/launch/spawn_one_nexus_4wd_mecanum.launch">
+        <arg name="robot_name" value="ugv_3" />
+        <arg name="pose_x" value="$(arg ugv_4_pose_x)" />
+        <arg name="pose_y" value="$(arg ugv_4_pose_y)" />
+        <arg name="pose_yaw" value="$(arg ugv_4_pose_yaw)" />
     </include>
 
     <include file="$(find px4)/launch/my_mavros_posix_sitl.launch">
