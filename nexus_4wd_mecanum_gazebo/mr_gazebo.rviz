@@ -7,15 +7,8 @@ Panels:
         - /Global Options1
         - /Status1
         - /uav01
-        - /uav01/Global Point1
-        - /uav01/Init Path1
-        - /uav01/uav_0_odom1
-        - /ugv_01
         - /ugv_01/Odometry1/Shape1
-        - /ugv_11
         - /ugv_11/Odometry1/Shape1
-        - /ugv_21
-        - /ugv_31
         - /ugv_31/Odometry1/Covariance1
       Splitter Ratio: 0.5413105487823486
     Tree Height: 834
@@ -36,7 +29,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 3
-    SyncSource: ""
+    SyncSource: ugv_grid_map
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -93,19 +86,27 @@ Visualization Manager:
           Use rainbow: true
           Value: true
         - Class: rviz/Marker
-          Enabled: true
+          Enabled: false
           Marker Topic: /uav_0_manager_node/goal_point
           Name: Global Point
           Namespaces:
             {}
           Queue Size: 100
-          Value: true
+          Value: false
         - Class: rviz/Marker
           Enabled: true
           Marker Topic: /uav_0_manager_node/init_list
           Name: Init Path
           Namespaces:
-            {}
+            "": true
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /uav_0_manager_node/optimal_list
+          Name: Opti path
+          Namespaces:
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -113,7 +114,8 @@ Visualization Manager:
           Marker Topic: /uav_0/ellipse_vis
           Name: ellipses
           Namespaces:
-            {}
+            ellipse: true
+            text: true
           Queue Size: 100
           Value: true
         - Angle Tolerance: 0.10000000149011612
@@ -217,7 +219,7 @@ Visualization Manager:
               Value: true
             Value: false
           Enabled: true
-          Keep: 50
+          Keep: 10
           Name: Odometry
           Position Tolerance: 0.10000000149011612
           Queue Size: 10
@@ -267,7 +269,7 @@ Visualization Manager:
           Marker Topic: /ugv_0_manager_node/global_list
           Name: Marker
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -275,7 +277,7 @@ Visualization Manager:
           Marker Topic: /ugv_0_manager_node/goal_point
           Name: Marker
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -352,7 +354,7 @@ Visualization Manager:
               Value: true
             Value: false
           Enabled: true
-          Keep: 100
+          Keep: 10
           Name: Odometry
           Position Tolerance: 0.10000000149011612
           Queue Size: 10
@@ -402,7 +404,7 @@ Visualization Manager:
           Marker Topic: /ugv_1_manager_node/global_list
           Name: Marker
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -410,7 +412,7 @@ Visualization Manager:
           Marker Topic: /ugv_1_manager_node/goal_point
           Name: Marker
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -487,7 +489,7 @@ Visualization Manager:
               Value: true
             Value: false
           Enabled: true
-          Keep: 50
+          Keep: 10
           Name: Odometry
           Position Tolerance: 0.10000000149011612
           Queue Size: 10
@@ -537,7 +539,7 @@ Visualization Manager:
           Marker Topic: /ugv_2_manager_node/global_list
           Name: Marker
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -545,7 +547,7 @@ Visualization Manager:
           Marker Topic: /ugv_2_manager_node/goal_point
           Name: Marker
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -622,7 +624,7 @@ Visualization Manager:
               Value: true
             Value: false
           Enabled: true
-          Keep: 100
+          Keep: 10
           Name: Odometry
           Position Tolerance: 0.10000000149011612
           Queue Size: 10
@@ -672,7 +674,7 @@ Visualization Manager:
           Marker Topic: /ugv_3_manager_node/global_list
           Name: Marker
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -680,7 +682,7 @@ Visualization Manager:
           Marker Topic: /ugv_3_manager_node/goal_point
           Name: Marker
           Namespaces:
-            {}
+            "": true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -720,7 +722,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 15.542852401733398
+      Distance: 9.985488891601562
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -728,17 +730,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 1.7365211248397827
-        Y: -0.0022261077538132668
-        Z: 0.8280123472213745
+        X: -0.6729985475540161
+        Y: 0.6755406260490417
+        Z: 1.887938141822815
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6297972202301025
+      Pitch: 1.0397977828979492
       Target Frame: <Fixed Frame>
-      Yaw: 2.971266031265259
+      Yaw: 3.13625431060791
     Saved: ~
 Window Geometry:
   Displays:

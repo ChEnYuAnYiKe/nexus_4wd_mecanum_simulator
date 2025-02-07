@@ -35,7 +35,7 @@
         </link>
         <!-- Gazebo 配置 -->
         <gazebo reference="laser_link">
-            <material>Gazebo/Gray</material>
+            <material>Gazebo/Red</material>
             <!--define sensor-->
             <sensor type="ray" name="laser_livox">
                 <visualize>false</visualize>
