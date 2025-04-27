@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!--打开rviz-->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nexus_4wd_mecanum_gazebo)/real_mr_gazebo.rviz"/>
+
+</launch>
