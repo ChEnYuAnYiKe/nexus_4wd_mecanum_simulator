@@ -5,7 +5,6 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /Status1
         - /uav01
         - /ugv_01
         - /ugv_01/Odometry1/Shape1
@@ -33,7 +32,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 3
-    SyncSource: ""
+    SyncSource: uav_grid_map
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -1049,7 +1048,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 22.14480209350586
+      Distance: 21.45343017578125
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1057,17 +1056,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 3.201967239379883
-        Y: -0.1199851781129837
-        Z: -1.0952880382537842
+        X: 5.0573225021362305
+        Y: 0.1545230746269226
+        Z: -0.30867254734039307
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7897970676422119
+      Pitch: 0.944797158241272
       Target Frame: <Fixed Frame>
-      Yaw: 3.126270294189453
+      Yaw: 3.141279935836792
     Saved: ~
 Window Geometry:
   Displays:

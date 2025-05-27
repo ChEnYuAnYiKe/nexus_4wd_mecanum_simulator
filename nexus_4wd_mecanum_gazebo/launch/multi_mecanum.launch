@@ -5,7 +5,7 @@
     <arg name="headless" default="false" />
     <!-- <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/cube_cylinder.world" /> -->
     <!-- <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/bayland.world" /> -->
-    <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/randomized_boxes_30m_200_min1_8_max2_5.world" />
+    <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/random_boxes_100x40.world"/>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="debug" value="0" />
