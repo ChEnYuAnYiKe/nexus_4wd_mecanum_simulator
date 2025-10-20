@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   #gazebo-dev
   nav_msgs
   roscpp
+  rospy
   std_msgs
   std_srvs
   tf
@@ -29,7 +30,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 
 catkin_package(
-    CATKIN_DEPENDS roscpp std_msgs geometry_msgs nav_msgs tf message_runtime
+    CATKIN_DEPENDS roscpp rospy std_msgs geometry_msgs nav_msgs tf message_runtime
     INCLUDE_DIRS include
     LIBRARIES
 )
@@ -46,6 +47,11 @@ target_link_libraries(nexus_ros_force_based_move ${Boost_LIBRARIES} ${GAZEBO_LIB
 
 # all install targets should use catkin DESTINATION variables
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
+
+catkin_install_python(PROGRAMS
+  scripts/pub_odom_gt.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}

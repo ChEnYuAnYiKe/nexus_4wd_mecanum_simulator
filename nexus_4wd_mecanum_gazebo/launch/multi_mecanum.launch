@@ -5,7 +5,10 @@
     <arg name="headless" default="false" />
     <!-- <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/cube_cylinder.world" /> -->
     <!-- <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/bayland.world" /> -->
-    <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/random_boxes_100x40.world"/>
+    <!-- <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/random_boxes_100x40.world"/> -->
+    <!-- <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/random_boxes_100x40_crowd.world"/> -->
+    <!-- <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/random_boxes_30_30m_dense.world"/>  -->
+    <arg name="world_name" default="$(find nexus_4wd_mecanum_gazebo)/worlds/random_boxes_30_30m_sparse.world"/>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="debug" value="0" />
@@ -69,4 +72,9 @@
         <arg name="y" value="0" />
         <arg name="z" value="0" />
     </include>
+
+    <node pkg="nexus_4wd_mecanum_gazebo" type="pub_odom_gt.py" name="gt_odom_mux" output="screen">
+        <param name="frame_id" value="world"/>
+        <param name="child_frame" value="base_footprint"/>
+    </node>
 </launch>

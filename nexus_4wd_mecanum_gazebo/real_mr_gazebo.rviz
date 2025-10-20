@@ -5,8 +5,8 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /broadcast_pcl_to_uav1
         - /uav01
+        - /uav01/uav_grid_map1
         - /ugv_01
         - /ugv_01/Odometry1/Shape1
         - /ugv_11
@@ -14,14 +14,15 @@ Panels:
         - /ugv_21
         - /ugv_31
         - /ugv_31/Odometry1/Covariance1
-      Splitter Ratio: 0.5413105487823486
-    Tree Height: 827
+      Splitter Ratio: 0.5418604612350464
+    Tree Height: 920
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
     Expanded:
       - /2D Pose Estimate1
       - /2D Nav Goal1
+      - /3D Nav Goal1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
   - Class: rviz/Views
@@ -32,7 +33,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 3
-    SyncSource: broadcast_pcl_to_uav
+    SyncSource: uav_grid_map
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -99,12 +100,12 @@ Visualization Manager:
           Class: rviz/PointCloud2
           Color: 255; 255; 255
           Color Transformer: Intensity
-          Decay Time: 0
-          Enabled: false
+          Decay Time: 1000
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
-          Name: ugv_grid_map
+          Name: uav_grid_map
           Position Transformer: XYZ
           Queue Size: 10
           Selectable: true
@@ -115,7 +116,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Class: rviz/Marker
           Enabled: false
           Marker Topic: /uav_0_manager_node/goal_point
@@ -138,15 +139,6 @@ Visualization Manager:
           Name: Opti path
           Namespaces:
             "": true
-          Queue Size: 100
-          Value: true
-        - Class: rviz/MarkerArray
-          Enabled: true
-          Marker Topic: /uav_0/ellipse_vis
-          Name: ellipses
-          Namespaces:
-            ellipse: true
-            text: true
           Queue Size: 100
           Value: true
         - Angle Tolerance: 0.10000000149011612
@@ -182,6 +174,62 @@ Visualization Manager:
             Shaft Radius: 0.05000000074505806
             Value: Axes
           Topic: /uav_0/fused_odom
+          Unreliable: false
+          Value: true
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /ugv_1_manager_node/scp/edge
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /ugv_1_manager_node/scp/mesh
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /uav_0_manager_node/scp/edge
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /uav_0_manager_node/scp/mesh
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Alpha: 2
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.05000000074505806
+          Name: Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /uav_0_odom_vis/path
           Unreliable: false
           Value: true
       Enabled: true
@@ -297,7 +345,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Marker
           Enabled: true
-          Marker Topic: /ugv_0_manager_node/global_list
+          Marker Topic: /ugv_0_manager_node/optimal_list
           Name: Marker
           Namespaces:
             "": true
@@ -311,14 +359,46 @@ Visualization Manager:
             {}
           Queue Size: 100
           Value: true
-        - Class: rviz/MarkerArray
+        - Class: rviz/Marker
           Enabled: false
-          Marker Topic: /ugv_0/ellipse_vis
-          Name: ellipses
+          Marker Topic: /ugv_0_manager_node/scp/edge
+          Name: Marker
           Namespaces:
             {}
           Queue Size: 100
           Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /ugv_0_manager_node/scp/mesh
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 32; 120; 218
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.07999999821186066
+          Name: Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /ugv_0_odom_vis/path
+          Unreliable: false
+          Value: true
       Enabled: true
       Name: ugv_0
     - Class: rviz/Group
@@ -414,7 +494,7 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: Intensity
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
@@ -429,10 +509,10 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Class: rviz/Marker
           Enabled: true
-          Marker Topic: /ugv_1_manager_node/global_list
+          Marker Topic: /ugv_1_manager_node/optimal_list
           Name: Marker
           Namespaces:
             "": true
@@ -446,14 +526,46 @@ Visualization Manager:
             {}
           Queue Size: 100
           Value: true
-        - Class: rviz/MarkerArray
+        - Class: rviz/Marker
           Enabled: false
-          Marker Topic: /ugv_1/ellipse_vis
-          Name: ellipses
+          Marker Topic: /ugv_1_manager_node/scp/edge
+          Name: Marker
           Namespaces:
             {}
           Queue Size: 100
           Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /ugv_1_manager_node/scp/mesh
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 137; 28; 245
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.07999999821186066
+          Name: Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /ugv_1_odom_vis/path
+          Unreliable: false
+          Value: true
       Enabled: true
       Name: ugv_1
     - Class: rviz/Group
@@ -567,7 +679,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Marker
           Enabled: true
-          Marker Topic: /ugv_2_manager_node/global_list
+          Marker Topic: /ugv_2_manager_node/optimal_list
           Name: Marker
           Namespaces:
             "": true
@@ -581,14 +693,46 @@ Visualization Manager:
             {}
           Queue Size: 100
           Value: true
-        - Class: rviz/MarkerArray
+        - Class: rviz/Marker
           Enabled: false
-          Marker Topic: /ugv_2/ellipse_vis
-          Name: ellipses
+          Marker Topic: /ugv_2_manager_node/scp/edge
+          Name: Marker
           Namespaces:
             {}
           Queue Size: 100
           Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /ugv_2_manager_node/scp/mesh
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 164; 0; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.07999999821186066
+          Name: Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /ugv_2_odom_vis/path
+          Unreliable: false
+          Value: true
       Enabled: true
       Name: ugv_2
     - Class: rviz/Group
@@ -632,7 +776,7 @@ Visualization Manager:
           Size (Pixels): 3
           Size (m): 0.009999999776482582
           Style: Flat Squares
-          Topic: /ugv_2/cloud_registered
+          Topic: /ugv_3/cloud_registered
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
@@ -702,7 +846,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Marker
           Enabled: true
-          Marker Topic: /ugv_3_manager_node/global_list
+          Marker Topic: /ugv_3_manager_node/optimal_list
           Name: Marker
           Namespaces:
             "": true
@@ -716,16 +860,56 @@ Visualization Manager:
             {}
           Queue Size: 100
           Value: true
-        - Class: rviz/MarkerArray
+        - Class: rviz/Marker
           Enabled: false
-          Marker Topic: /ugv_3/ellipse_vis
-          Name: ellipses
+          Marker Topic: /ugv_3_manager_node/scp/edge
+          Name: Marker
           Namespaces:
             {}
           Queue Size: 100
           Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /ugv_3_manager_node/scp/mesh
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 196; 160; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.07999999821186066
+          Name: Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /ugv_3_odom_vis/path
+          Unreliable: false
+          Value: true
       Enabled: true
       Name: ugv_3
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /network/edges
+      Name: MarkerArray
+      Namespaces:
+        uav_ugv_edge: true
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -746,14 +930,14 @@ Visualization Manager:
       X std deviation: 0.5
       Y std deviation: 0.5
     - Class: rviz/SetGoal
-      Topic: /uav_0/move_base_simple/goal
+      Topic: /ugv_1/move_base_simple/goal
     - Class: rviz_plugins/Goal3DTool
-      Topic: /goal_with_id
+      Topic: /goal_with_id_q
   Value: true
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 8.004742622375488
+      Distance: 29.19906234741211
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -761,25 +945,25 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.8456340432167053
-        Y: -1.4065206050872803
-        Z: 2.382925271987915
-      Focal Shape Fixed Size: true
+        X: 4.502493858337402
+        Y: 1.073567271232605
+        Z: 0.28652527928352356
+      Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.0697969198226929
+      Pitch: 0.7497970461845398
       Target Frame: <Fixed Frame>
-      Yaw: 3.0812742710113525
+      Yaw: 3.150413751602173
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1403
+  Height: 1529
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001b0000004ccfc0200000008fb0000001200530065006c0065006300740069006f006e00000000470000008a0000006e00fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000047000001430000006e00fffffffb000000100044006900730070006c006100790073010000019100000382000000f100fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c000002610000000100000185000004ccfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000047000004cc000000c200fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000009b800000040fc0100000002fb0000000800540069006d00650100000000000009b80000045a00fffffffb0000000800540069006d0065010000000000000450000000000000000000000675000004cc00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001b00000054afc0200000008fb0000001200530065006c0065006300740069006f006e00000000470000008a0000006e00fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000047000001640000006e00fffffffb000000100044006900730070006c00610079007301000001b2000003df000000f100fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c0000026100000001000001850000054afc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a0056006900650077007301000000470000054a000000c200fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000009b800000040fc0100000002fb0000000800540069006d00650100000000000009b80000045a00fffffffb0000000800540069006d00650100000000000004500000000000000000000006750000054a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -789,5 +973,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 2488
-  X: 2632
-  Y: 0
+  X: 72
+  Y: 34
